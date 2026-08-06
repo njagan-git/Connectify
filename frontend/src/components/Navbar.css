@@ -1,0 +1,51 @@
+.navbar{
+    height:70px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 40px;
+
+    background:white;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+}
+
+.logo h2{
+    color:#1877f2;
+}
+
+.search input{
+
+    width:350px;
+
+    padding:10px 15px;
+
+    border-radius:20px;
+
+    border:1px solid lightgray;
+
+    outline:none;
+}
+
+.avatar img{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    object-fit:cover;
+}
