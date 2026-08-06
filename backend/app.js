@@ -251,7 +251,7 @@ app.get("/mycomments",async(req,res)=>{
         return res.status(401).json();
 
     const posts=await Post.find({
-        "comments.user":req.user._id
+        "comments.author":req.user._id
     })
     .populate("author")
     .populate("comments.author");

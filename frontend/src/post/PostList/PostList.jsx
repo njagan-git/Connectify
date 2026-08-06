@@ -62,7 +62,15 @@ function openSidebar() {
 function closeSidebar() {
     setSidebarOpen(false);
 }
-  
+function updatePostComments(postId, newComments) {
+    setPosts(prev =>
+        prev.map(post =>
+            post._id === postId
+                ? { ...post, comments: newComments }
+                : post
+        )
+    );
+}
   return (
   
     <div className="feed">
@@ -130,10 +138,14 @@ function closeSidebar() {
               <CommentList comments={post.comments} />
 
               <CommentForm
-                postId={post._id}
-                onCommentAdded={(newComments) =>
-                  updatePostComments(post._id, newComments)
-                }
+                  postId={post._id}
+                  onCommentAdded={(updatedPost) => {
+                  setPosts(prev =>
+                  prev.map(p =>
+                  p._id === updatedPost._id ? updatedPost : p
+                  )
+                    );
+                  }}
               />
 
               <p>Post by {post.author.username}</p>

@@ -18,7 +18,7 @@ function CommentForm({ postId, onCommentAdded }) {
     withCredentials: true
   }
 );
-      onCommentAdded(res.data.comments); // updated comments array from server
+      onCommentAdded(res.data); // updated comments array from server
       setText("");
     } catch (err) {
       console.error("Error posting comment:", err);
