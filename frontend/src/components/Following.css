@@ -1,0 +1,205 @@
+.following-page {
+    min-height: 100vh;
+    background: #15161c;
+    color: white;
+    padding: 30px 20px;
+}
+
+
+/* Header */
+
+.following-header {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.following-header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+
+/* Back button */
+
+.back-button {
+    position: absolute;
+    left: 0;
+
+    border: none;
+    background: transparent;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.back-button:hover {
+    opacity: 0.7;
+}
+
+
+/* User list */
+
+.following-list {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0 auto;
+}
+
+
+/* Individual user bar */
+
+.following-user {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 16px;
+
+    margin-bottom: 10px;
+
+    background: #202127;
+
+    border-radius: 10px;
+
+    box-sizing: border-box;
+
+    transition: background 0.2s;
+}
+
+.following-user:hover {
+    background: #292a31;
+}
+
+
+/* User information */
+
+.following-user-info {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    cursor: pointer;
+
+    min-width: 0;
+}
+
+
+/* Avatar */
+
+.following-user-info img {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    flex-shrink: 0;
+}
+
+
+/* Username */
+
+.following-user-info span {
+    font-size: 17px;
+    font-weight: 500;
+
+    color: #ffffff;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* Following button */
+
+.following-button {
+    border: 1px solid #555;
+
+    background: transparent;
+
+    color: white;
+
+    padding: 8px 16px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    flex-shrink: 0;
+}
+
+.following-button:hover {
+    background: #33343b;
+}
+
+
+/* Empty state */
+
+.empty-following {
+    text-align: center;
+
+    color: #aaa;
+
+    margin-top: 50px;
+
+    font-size: 16px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .following-page {
+        padding: 20px 12px;
+    }
+
+    .following-header {
+        margin-bottom: 20px;
+    }
+
+    .following-header h1 {
+        font-size: 25px;
+    }
+
+    .back-button {
+        font-size: 24px;
+    }
+
+    .following-user {
+        padding: 12px;
+    }
+
+    .following-user-info img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .following-user-info span {
+        font-size: 15px;
+    }
+
+    .following-button {
+        padding: 7px 12px;
+        font-size: 13px;
+    }
+}

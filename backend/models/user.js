@@ -21,7 +21,20 @@ const userSchema = new mongoose.Schema({
         type:String,
         default:'public',
         enum:['public','private']
-    }
+    },
+    followers: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ],
+
+    following: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ]
 });
 //console.log(typeof passportLocalMongoose);
 //console.log(passportLocalMongoose);

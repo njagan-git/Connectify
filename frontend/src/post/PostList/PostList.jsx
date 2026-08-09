@@ -7,13 +7,15 @@ import CommentForm from "./CommentForm";
 import {useLogout} from "../../user/useLogout"
 import Navbar from "../../components/Navbar"
 import Sidebar from "../../components/Sidebar/Sidebar"
+import handleFollow from "./handleFollow";
+import { useNavigate } from "react-router-dom";
 
 function PostList() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user,setUser] = useState(null)
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     axios.get("http://localhost:3000/me", {
   withCredentials: true,
@@ -54,6 +56,28 @@ function PostList() {
     }
 }
 const handleLogout = useLogout()
+async function handleFollowClick(authorId, isFollowing) {
+    try {
+        const updatedAuthor = await handleFollow(
+            authorId,
+            isFollowing
+        );
+
+        setPosts(prevPosts =>
+            prevPosts.map(post =>
+                post.author._id === authorId
+                    ? {
+                        ...post,
+                        author: updatedAuthor
+                    }
+                    : post
+            )
+        );
+
+    } catch (err) {
+        console.log("Follow/Unfollow failed:", err);
+    }
+}
 function openSidebar() {
   
    setSidebarOpen(true);
@@ -94,6 +118,16 @@ function updatePostComments(postId, newComments) {
     user={user}
     openSidebar={openSidebar}
     />
+    {user && (
+    <div className="add-post-container">
+        <button
+            className="add-post-button"
+            onClick={() => navigate("/posts/new")}
+        >
+            + Add Post
+        </button>
+    </div>
+)}
     <Sidebar
     user={user}
     isOpen={sidebarOpen}
@@ -106,12 +140,86 @@ function updatePostComments(postId, newComments) {
 
       <div className="feed-grid">
         {posts.map((post) => {
-        const liked =
-          user &&
-          post.likes.some(id => id.toString() === user._id);
+         const liked =
+    user &&
+    post.likes.some(
+      like =>
+        like._id?.toString() ===
+        user._id?.toString()
+    );
 
+  const isOwnPost =
+    user &&
+    post.author._id.toString() ===
+    user._id.toString();
+
+  const isFollowing =
+    user &&
+    post.author.followers?.some(
+      follower =>
+        follower._id?.toString() ===
+          user._id.toString() ||
+        follower.toString() ===
+          user._id.toString()
+    );
         return (
           <div className="post-card" key={post._id}>
+            {/* POST AUTHOR BAR */}
+
+<div className="post-author-bar">
+
+  {/* Author */}
+
+  <div
+    className="post-author"
+    onClick={() =>
+      navigate(`/profile/${post.author._id}`)
+    }
+  >
+
+    <img
+      src={
+        post.author?.profilePic ||
+        "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+      }
+      alt={post.author?.username}
+      className="post-author-avatar"
+    />
+
+    <strong>
+      {post.author?.username}
+    </strong>
+
+  </div>
+
+
+  {/* Follow / Unfollow */}
+
+  {!isOwnPost && (
+
+    <button
+      className={
+        isFollowing
+          ? "post-following-btn"
+          : "post-follow-btn"
+      }
+      onClick={() =>
+        handleFollowClick(
+          post.author._id,
+          isFollowing
+        )
+      }
+    >
+
+      {isFollowing
+        ? "Following"
+        : "Follow"}
+
+    </button>
+
+  )}
+
+</div>
             <div className="post-image-wrap">
               <img
                 src={post.images.url}

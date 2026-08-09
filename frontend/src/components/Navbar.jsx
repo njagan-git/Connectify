@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 function Navbar({ user, openSidebar }) {
   return (
@@ -15,15 +16,27 @@ function Navbar({ user, openSidebar }) {
         />
       </div>
 
-      <div className="avatar">
-        <img
-          src={
-            user?.profilePic ||
-            "https://cdn-icons-png.flaticon.com/512/149/149071.png"
-          }
-          alt="profile"
-          onClick={openSidebar}
-        />
+      <div className="navbar-right">
+
+        {user ? (
+          // Logged-in user
+          <div className="avatar">
+            <img
+              src={
+                user.profilePic ||
+                "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              }
+              alt="profile"
+              onClick={openSidebar}
+            />
+          </div>
+        ) : (
+          // Not logged in
+          <Link to="/login" className="login-btn">
+            Login
+          </Link>
+        )}
+
       </div>
 
     </nav>

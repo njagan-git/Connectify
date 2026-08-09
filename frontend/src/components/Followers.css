@@ -1,0 +1,243 @@
+.followers-page {
+    min-height: 100vh;
+
+    background: #15161c;
+
+    color: white;
+
+    padding: 30px 20px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.followers-header {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0 auto 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.followers-header h1 {
+    margin: 0;
+
+    font-size: 32px;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.followers-header .back-button {
+    position: absolute;
+
+    left: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.followers-header .back-button:hover {
+    opacity: 0.7;
+}
+
+
+/* =========================
+   FOLLOWERS LIST
+========================= */
+
+.followers-list {
+    width: 100%;
+
+    max-width: 650px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================
+   USER BAR
+========================= */
+
+.follower-user {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 14px 16px;
+
+    margin-bottom: 10px;
+
+    background: #202127;
+
+    border-radius: 10px;
+
+    box-sizing: border-box;
+
+    transition: background 0.2s;
+}
+
+.follower-user:hover {
+    background: #292a31;
+}
+
+
+/* =========================
+   USER INFORMATION
+========================= */
+
+.follower-user-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    cursor: pointer;
+
+    min-width: 0;
+}
+
+
+/* =========================
+   AVATAR
+========================= */
+
+.follower-user-info img {
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   USERNAME
+========================= */
+
+.follower-user-info span {
+    font-size: 17px;
+
+    font-weight: 500;
+
+    color: white;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   FOLLOW BUTTON
+========================= */
+
+.follower-button {
+    border: 1px solid #555;
+
+    background: transparent;
+
+    color: white;
+
+    padding: 8px 16px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    flex-shrink: 0;
+}
+
+.follower-button:hover {
+    background: #33343b;
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-followers {
+    text-align: center;
+
+    color: #aaa;
+
+    margin-top: 50px;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .followers-page {
+        padding: 20px 12px;
+    }
+
+    .followers-header {
+        margin-bottom: 20px;
+    }
+
+    .followers-header h1 {
+        font-size: 25px;
+    }
+
+    .followers-header .back-button {
+        font-size: 24px;
+    }
+
+    .follower-user {
+        padding: 12px;
+    }
+
+    .follower-user-info img {
+        width: 42px;
+
+        height: 42px;
+    }
+
+    .follower-user-info span {
+        font-size: 15px;
+    }
+
+    .follower-button {
+        padding: 7px 12px;
+
+        font-size: 13px;
+    }
+}

@@ -21,9 +21,12 @@ function CreatePost() {
         url: data.images
     };
      const response = await axios.post(
-            "http://localhost:3000/posts",
-            data
-        );
+    "http://localhost:3000/posts",
+    data,
+    {
+        withCredentials: true
+    }
+);
     console.log(data);
     reset()
     navigate("/posts")

@@ -100,3 +100,75 @@
 .new-post-btn:hover {
   background-color: #1d4ed8;
 }
+.post-author-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.post-author-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-author strong {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.post-follow-btn,
+.post-following-btn {
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.post-follow-btn {
+    background: #0095f6;
+    color: white;
+}
+
+.post-following-btn {
+    background: #efefef;
+    color: #222;
+}
+.add-post-container {
+    width: 100%;
+    padding: 16px 25px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.add-post-button {
+    background: #0095f6;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 9px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-post-button:hover {
+    background: #0081d6;
+}
+
+.add-post-button:active {
+    transform: scale(0.96);
+}
